@@ -1,0 +1,73 @@
+file_name,column_name,data_type,description
+Accidents.csv,accident_id,string,[SYNTHETIC] Primary key. Synthetic accident identifier such as ACC0000001; IDs grow in chronological order.
+Accidents.csv,accident_date,date (YYYY-MM-DD),[SYNTHETIC] Date of the synthetic accident.
+Accidents.csv,accident_time,time (HH:MM:SS),[SYNTHETIC] Local time of day of the accident.
+Accidents.csv,day_of_week,string,"[SYNTHETIC] Day name, Monday to Sunday."
+Accidents.csv,month,integer,"[SYNTHETIC] Month number, 1 (January) to 12 (December)."
+Accidents.csv,year,integer,[SYNTHETIC] Calendar year of the accident.
+Accidents.csv,country,string,[SYNTHETIC] Country of the accident (always United Kingdom in this generator).
+Accidents.csv,city,string,[SYNTHETIC] City the accident is attributed to.
+Accidents.csv,area,string,"[SYNTHETIC] District inside the city for urban accidents, or 'Outskirts <North/East/South/West>' for rural ones."
+Accidents.csv,latitude,float,"[SYNTHETIC] Synthetic WGS84 latitude in decimal degrees, inside the city's bounding box."
+Accidents.csv,longitude,float,"[SYNTHETIC] Synthetic WGS84 longitude in decimal degrees, inside the city's bounding box."
+Accidents.csv,road_name,string,[SYNTHETIC] Road on which the accident occurred (motorway/A-road number or street name).
+Accidents.csv,road_type,string,"[SYNTHETIC] Motorway, Dual Carriageway, A Road, B Road, Local Street or Rural Lane."
+Accidents.csv,urban_or_rural,string,[SYNTHETIC] Urban (built-up city area) or Rural (outskirts).
+Accidents.csv,junction_type,string,"[SYNTHETIC] Junction at the accident site, or 'No Junction'."
+Accidents.csv,speed_limit,integer,"[SYNTHETIC] Posted speed limit in km/h (rounded UK limits: 32, 48, 64, 80, 96, 112)."
+Accidents.csv,accident_severity,string,"[SYNTHETIC] Fatal, Serious or Slight. Equals the worst injury among the casualties."
+Accidents.csv,number_of_vehicles,integer,[SYNTHETIC] Number of vehicle records for this accident in Vehicles.csv.
+Accidents.csv,number_of_casualties,integer,[SYNTHETIC] Number of casualty records for this accident in Casualties.csv.
+Accidents.csv,accident_duration_minutes,integer,[SYNTHETIC] Minutes until the scene was cleared and traffic flowed again.
+Accidents.csv,traffic_conditions,string,"[SYNTHETIC] Traffic density at the time: Free Flow, Moderate, Heavy or Congested."
+Accidents.csv,light_conditions,string,"[SYNTHETIC] Daylight, Dawn/Dusk, Darkness - Lights Lit or Darkness - No Lighting (derived from sun position)."
+Accidents.csv,weather_condition,string,"[SYNTHETIC] Clear, Cloudy, Rain, Heavy Rain, Fog, Snow or Windy."
+Accidents.csv,temperature_celsius,float,[SYNTHETIC] Air temperature in degrees Celsius. Missing for a small share of rows (sensor gap).
+Accidents.csv,humidity_percentage,float,"[SYNTHETIC] Relative humidity, 0-100. Missing for a small share of rows (sensor gap)."
+Accidents.csv,visibility_km,float,[SYNTHETIC] Visibility distance in kilometres. Missing for a small share of rows (sensor gap).
+Accidents.csv,wind_speed_kmh,float,[SYNTHETIC] Wind speed in km/h. Missing for a small share of rows (sensor gap).
+Accidents.csv,precipitation_mm,float,[SYNTHETIC] Precipitation intensity in mm per hour (0 when dry).
+Accidents.csv,road_surface_condition,string,"[SYNTHETIC] Dry, Wet, Icy, Snowy or Muddy."
+Accidents.csv,road_lighting,string,"[SYNTHETIC] Street lighting at the site: Present - Working, Present - Not Working or No Street Lighting."
+Accidents.csv,road_hazards,string,"[SYNTHETIC] Hazard on the road (No Hazard, Pothole, Debris on Road, Oil/Diesel Spill, Stationary Vehicle, Animal on Road, Flooding, Fallen Tree, Ice Patch)."
+Accidents.csv,road_works,boolean,[SYNTHETIC] True if road works were present at the site.
+Accidents.csv,primary_cause,string,[SYNTHETIC] Single main cause chosen from the contributing factors (or a non-flag cause when no factor applies).
+Accidents.csv,speeding_involved,boolean,[SYNTHETIC] True if at least one motor vehicle was travelling above the speed limit.
+Accidents.csv,distracted_driving,boolean,"[SYNTHETIC] True if a driver was distracted (phone, passengers, etc.)."
+Accidents.csv,drunk_driving,boolean,[SYNTHETIC] True if a driver was impaired by alcohol or drugs.
+Accidents.csv,reckless_driving,boolean,[SYNTHETIC] True if reckless or aggressive driving was involved.
+Accidents.csv,poor_road_condition,boolean,[SYNTHETIC] True if road surface or hazards contributed to the accident.
+Accidents.csv,weather_related,boolean,"[SYNTHETIC] True if adverse weather (rain, fog, snow, wind) contributed."
+Accidents.csv,traffic_violation,boolean,"[SYNTHETIC] True if a traffic rule was broken (e.g. red light, illegal turn, speeding)."
+Accidents.csv,driver_fatigue,boolean,[SYNTHETIC] True if a driver was fatigued.
+Vehicles.csv,vehicle_id,string,[SYNTHETIC] Primary key. Synthetic vehicle identifier such as VEH00000001.
+Vehicles.csv,accident_id,string,[SYNTHETIC] Foreign key to Accidents.accident_id.
+Vehicles.csv,vehicle_reference,integer,"[SYNTHETIC] Position of the vehicle inside its accident (1, 2, 3, ...). Vehicle 1 is the main vehicle."
+Vehicles.csv,vehicle_type,string,"[SYNTHETIC] Car, Motorcycle, Truck, Bus, Bicycle or Van."
+Vehicles.csv,vehicle_make,string,[SYNTHETIC] Manufacturer (synthetic catalogue).
+Vehicles.csv,vehicle_model,string,[SYNTHETIC] Model name that belongs to the make and vehicle type.
+Vehicles.csv,vehicle_year,integer,[SYNTHETIC] Year of manufacture (never later than the accident year).
+Vehicles.csv,vehicle_age,integer,"[SYNTHETIC] Accident year minus vehicle_year, in years."
+Vehicles.csv,vehicle_speed_kmh,integer,[SYNTHETIC] Estimated speed just before the collision in km/h (0 for parked or waiting vehicles).
+Vehicles.csv,vehicle_direction,string,[SYNTHETIC] Compass direction of travel.
+Vehicles.csv,vehicle_maneuver,string,"[SYNTHETIC] What the vehicle was doing (Going Ahead, Turning Left, Overtaking, Parked, ...)."
+Vehicles.csv,vehicle_damage_severity,string,"[SYNTHETIC] No Damage, Minor, Moderate, Severe or Total Loss."
+Vehicles.csv,driver_age,integer,[SYNTHETIC] Age of the driver/rider. Empty when the driver is unknown (e.g. hit-and-run).
+Vehicles.csv,driver_gender,string,[SYNTHETIC] Male or Female. Empty when the driver is unknown.
+Vehicles.csv,driver_experience_years,integer,[SYNTHETIC] Years since the driver started driving/riding (licence age). Empty when the driver is unknown.
+Vehicles.csv,seatbelt_used,boolean,"[SYNTHETIC] Only for vehicles with seatbelts (Car, Van, Truck). Empty = not applicable."
+Vehicles.csv,helmet_used,boolean,[SYNTHETIC] Only for Motorcycle and Bicycle. Empty = not applicable.
+Vehicles.csv,driver_condition,string,"[SYNTHETIC] Normal, Alcohol Impaired, Drug Impaired, Fatigued or Distracted."
+Vehicles.csv,vehicle_color,string,[SYNTHETIC] Vehicle colour. Empty for a small share of rows.
+Vehicles.csv,engine_capacity_cc,integer,[SYNTHETIC] Engine capacity in cubic centimetres. Empty for bicycles (no engine).
+Casualties.csv,casualty_id,string,[SYNTHETIC] Primary key. Synthetic casualty identifier such as CAS00000001.
+Casualties.csv,accident_id,string,[SYNTHETIC] Foreign key to Accidents.accident_id.
+Casualties.csv,vehicle_id,string,[SYNTHETIC] Foreign key to Vehicles.vehicle_id. Empty (NULL) for pedestrians.
+Casualties.csv,casualty_type,string,"[SYNTHETIC] Driver, Passenger, Pedestrian, Cyclist or Motorcyclist."
+Casualties.csv,age,integer,[SYNTHETIC] Age of the casualty. Drivers/riders share the age of the vehicle's driver. Small share missing.
+Casualties.csv,gender,string,[SYNTHETIC] Male or Female. Empty when unknown.
+Casualties.csv,injury_severity,string,"[SYNTHETIC] Fatal, Serious or Slight."
+Casualties.csv,hospitalized,boolean,[SYNTHETIC] True if the casualty was taken to hospital.
+Casualties.csv,emergency_response_required,boolean,[SYNTHETIC] True if an ambulance / emergency service response was required.
+Casualties.csv,seatbelt_used,boolean,"[SYNTHETIC] Only for occupants of cars, vans and trucks. Empty = not applicable."
+Casualties.csv,helmet_used,boolean,"[SYNTHETIC] Only for motorcyclists, cyclists and motorcycle passengers. Empty = not applicable."

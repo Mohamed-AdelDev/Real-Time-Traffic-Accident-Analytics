@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.py[cod]
+checkpoints/
+data/raw/
+data/spark_output/
+data/spark_test_output/
+*.zip
+project_structure.txt
+*.log
+*.crc

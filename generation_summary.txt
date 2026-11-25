@@ -1,0 +1,135 @@
+==============================================================================
+TRAFFIC ACCIDENT DATASET - GENERATION SUMMARY
+ALL RECORDS ARE SYNTHETIC (computer generated). They are NOT real reported accidents
+and must not be used as real-world observations.
+==============================================================================
+Generated at        : 2026-11-18 07:09:12
+Random seed         : 42
+Generation time     : 20.5 seconds
+
+TOTALS
+  Total accidents   : 100,000
+  Total vehicles    : 182,333  (1.82 per accident)
+  Total casualties  : 167,708  (1.68 per accident)
+
+DATE RANGE
+  First accident    : 2023-01-01
+  Last accident     : 2024-12-31
+
+ACCIDENT SEVERITY DISTRIBUTION
+  Fatal                            2,575  ( 2.57%)
+  Serious                         18,233  (18.23%)
+  Slight                          79,192  (79.19%)
+
+CASUALTY INJURY SEVERITY DISTRIBUTION
+  Fatal                            2,769  ( 1.65%)
+  Serious                         22,846  (13.62%)
+  Slight                         142,093  (84.73%)
+
+VEHICLE TYPE DISTRIBUTION
+  Car                            114,937  (63.04%)
+  Motorcycle                      21,745  (11.93%)
+  Van                             15,515  ( 8.51%)
+  Truck                           12,588  ( 6.90%)
+  Bicycle                         11,240  ( 6.16%)
+  Bus                              6,308  ( 3.46%)
+
+WEATHER DISTRIBUTION
+  Clear                           31,802  (31.80%)
+  Cloudy                          27,714  (27.71%)
+  Rain                            20,567  (20.57%)
+  Windy                           10,107  (10.11%)
+  Heavy Rain                       4,582  ( 4.58%)
+  Fog                              3,608  ( 3.61%)
+  Snow                             1,620  ( 1.62%)
+
+CITY DISTRIBUTION
+  London                          23,727  (23.73%)
+  Manchester                      11,075  (11.07%)
+  Birmingham                      10,831  (10.83%)
+  Glasgow                          9,242  ( 9.24%)
+  Liverpool                        8,128  ( 8.13%)
+  Leeds                            8,059  ( 8.06%)
+  Nottingham                       7,993  ( 7.99%)
+  Sheffield                        7,021  ( 7.02%)
+  Edinburgh                        6,973  ( 6.97%)
+  Bristol                          6,951  ( 6.95%)
+
+MISSING VALUES (empty cells; 'not applicable' values such as pedestrian vehicle_id,
+helmet for cars or engine size for bicycles are intentional empties)
+Accidents: 2,868 empty cells in total
+  temperature_celsius                517  ( 0.52%)
+  humidity_percentage                807  ( 0.81%)
+  visibility_km                      806  ( 0.81%)
+  wind_speed_kmh                     738  ( 0.74%)
+Vehicles: 211,870 empty cells in total
+  driver_age                       2,782  ( 1.53%)
+  driver_gender                    2,782  ( 1.53%)
+  driver_experience_years          2,782  ( 1.53%)
+  seatbelt_used                   39,293  (21.55%)
+  helmet_used                    149,348  (81.91%)
+  vehicle_color                    3,643  ( 2.00%)
+  engine_capacity_cc              11,240  ( 6.16%)
+Casualties: 204,278 empty cells in total
+  vehicle_id                       8,314  ( 4.96%)
+  age                              2,243  ( 1.34%)
+  gender                           1,752  ( 1.04%)
+  seatbelt_used                   51,379  (30.64%)
+  helmet_used                    140,590  (83.83%)
+
+VALIDATION RESULTS
+  [PASS] Accidents columns match the schema
+  [PASS] Vehicles columns match the schema
+  [PASS] Casualties columns match the schema
+  [PASS] No duplicate accident_id
+  [PASS] No duplicate vehicle_id
+  [PASS] No duplicate casualty_id
+  [PASS] No missing primary keys
+  [PASS] Vehicle reference is unique inside each accident
+  [PASS] Vehicles.accident_id exists in Accidents
+  [PASS] Casualties.accident_id exists in Accidents
+  [PASS] Casualties.vehicle_id exists in Vehicles
+  [PASS] Casualty and its vehicle belong to the same accident
+  [PASS] Pedestrians have NULL vehicle_id, everybody else has a vehicle
+  [PASS] Casualty type matches the vehicle type
+  [PASS] Driver/rider casualties have the same age as the vehicle driver
+  [PASS] Every accident has at least one vehicle
+  [PASS] Every accident has at least one casualty
+  [PASS] number_of_vehicles matches Vehicles.csv
+  [PASS] number_of_casualties matches Casualties.csv
+  [PASS] Accident severity equals the worst casualty injury
+  [PASS] Casualties do not all share one severity in severe accidents
+  [PASS] Accidents: all categorical values are valid
+  [PASS] Vehicles: all categorical values are valid
+  [PASS] Casualties: all categorical values are valid
+  [PASS] All dates and times are valid
+  [PASS] Dates are inside the configured range
+  [PASS] day_of_week / month / year agree with accident_date
+  [PASS] Latitude/longitude are valid numbers
+  [PASS] Every coordinate lies inside its city's bounding box
+  [PASS] No negative or impossible numbers (speeds, ages, counts, durations)
+  [PASS] Weather values are in realistic ranges
+  [PASS] Fog always has reduced visibility (< 1 km)
+  [PASS] Rain, heavy rain and snow always have precipitation
+  [PASS] Clear and cloudy weather has no precipitation
+  [PASS] Icy roads only occur when it is cold (<= 3 C)
+  [PASS] Snowy roads only occur in snow weather
+  [PASS] Wet roads are much more common in rain than in clear weather  [wet share: rain 92% vs clear 7%]
+  [PASS] weather_related is never True in clear/cloudy weather
+  [PASS] Helmet data only for motorcycles and bicycles (and always present for them)
+  [PASS] Seatbelt data only for vehicles with seatbelts (and always present for them)
+  [PASS] vehicle_year <= accident year and vehicle_age = year - vehicle_year
+  [PASS] Driver age respects the minimum age for the vehicle type
+  [PASS] Driver experience never exceeds driver age
+  [PASS] Bicycles have no engine, motor vehicles do
+  [PASS] speeding_involved <=> a motor vehicle exceeded the speed limit
+  [PASS] drunk_driving <=> an impaired driver exists
+  [PASS] primary_cause is backed by its contributing factor
+  [PASS] Multiple contributing factors can occur together
+  [PASS] No regular column has more than 5% missing values
+  [PASS] Slight > Serious > Fatal, with fatal accidents rare (< 5%)  [Fatal 2.6% / Serious 18.2% / Slight 79.2%]
+  [PASS] Cars are the most common vehicle; motorcycles, bicycles, trucks and buses are well represented  [Car 63.0%, Motorcycle 11.9%, Truck 6.9%, Bus 3.5%, Bicycle 6.2%, Van 8.5%]
+  [PASS] Vehicles per accident between 1.5 and 2.0  [1.82]
+  [PASS] Most accidents involve 1-2 vehicles, some involve 3+
+
+  53 / 53 checks passed
