@@ -1,11 +1,25 @@
+# Python environment
 .venv/
 __pycache__/
 *.py[cod]
+
+# Spark checkpoints and generated outputs
 checkpoints/
 data/raw/
 data/spark_output/
 data/spark_test_output/
+data/spark_final_output/
+
+# Power BI
+*.pbix
+
+# Archives and temporary files
 *.zip
-project_structure.txt
 *.log
 *.crc
+project_structure.txt
+
+# Local environment variables and credentials
+.env
+.env.*
+!.env.example
